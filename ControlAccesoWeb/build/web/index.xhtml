@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></link>
+        <title>Loggin</title>
+    </h:head>
+    <h:body>
+        <p:panel id="basic" style="margin-bottom:20px; align-content: center;">
+            <h:panelGrid columns="2"  cellpadding="5"  style="text-align: center; height:50px; align-content: center; ">
+                <p:graphicImage  style="  height:100px; margin-top: 10px; margin-left: 205px;
+                                 left: 50%; top:50%; "   name="demo/images/descarga.jpg" />
+                <h3  style="center">GOBIERNO AUTONOMO DESCENTRALIZADO DE LA PROVINCIA DE PICHINCHA</h3>
+                <h3 style="center">BOLSA DE EMPLEO</h3>
+            </h:panelGrid>
+        </p:panel>
+        <p:outputPanel>
+            <div class="ui-grid">
+                <div class="ui-grid-row">
+                    
+                    <div class="ui-grid-col-3" align="center">
+                        <h4>Es tu primera vez en la bolsa de empleo?</h4>
+                        <p:button  outcome="crearCuenta.xhtml" value="Crear Cuenta" >
+                           </p:button>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <h4>Si ya estás registrado</h4>    
+                        <p:button  outcome="iniciarSesion.xhtml" value="Iniciar Sesión" >
+                             </p:button>
+                    </div>
+        
+                    <div class="ui-grid-col-3"></div>
+                </div>
+            </div>
+        </p:outputPanel>
+
+    </h:body>
+</html>
+
