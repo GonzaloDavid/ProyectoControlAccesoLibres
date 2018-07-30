@@ -87,19 +87,5 @@ public class CrearCuentaa {
     enviarMail();
     conectar.EjecutarSQL("Insert into artesano(nombre,apellido,correo,password1,confPassword)values('"+this.nombre+"','"+this.apellido+"','"+this.correo+"','"+this.Password+"','"+this.confPassword+"')");
     }
-    public void comprobarCuenta()
-    {
-     
-     ResultSet consulta=conectar.Consulta("select *from artesano a where a.nombre='"+nombre+"'"+"&& a.password1='"+Password+"'");
-       try{
-            while(consulta.next()){
-                validarConrreo=consulta.getString(4);
-                validarContrasenia=consulta.getString(5);
-                System.out.println(validarConrreo);
-                 
-            }    
-        }catch(SQLException e){   
-            System.out.println("hay error en el while");
-        }  
-    }
+    
 }

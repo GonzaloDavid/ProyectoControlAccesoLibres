@@ -47,17 +47,17 @@ public class Conectar {
             JOptionPane.showMessageDialog(null, "Error:"+ e.getMessage(),"Error de Conecion",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }
-    /*
+    }/*
+    
       public static void main(String[] args) {
-        // TODO code application logic here
+      
         Conectar conectar=new Conectar();
         String validarConrreo,validarContrasenia;
-        String nombre="david";
+        String correo="davidgonzalomejia@hotmail.com";
         String Password="david";
         
         
-       ResultSet consulta=conectar.Consulta("select *from artesano a where a.nombre='"+nombre+"'"+"&& a.password1='"+Password+"'");
+       ResultSet consulta=conectar.Consulta("select *from artesano a where a.correo='"+correo+"'"+"&& a.password1='"+Password+"'");
        try{
             while(consulta.next()){
                 validarConrreo=consulta.getString(4);
@@ -69,8 +69,7 @@ public class Conectar {
             System.out.println("hay error en el while");
         }  
       
-       conectar.EjecutarSQL("Insert into artesano(nombre,apellido,correo,password1,confPassword)values('Grace','proano','davidgonzalomejia@hotmail.com','grace','grace')");
-    
+         
        
     }*/
 }
