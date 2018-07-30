@@ -19,7 +19,7 @@ public class IniciarSesion {
     String validarContrasenia;
     String validarConrreo;
     String notificar;
-    
+     boolean verificador;
     conexion.Conectar conectar=new conexion.Conectar();
     Cifrado.CifradoDatos cifrar=new Cifrado.CifradoDatos();
     public IniciarSesion() {
@@ -31,6 +31,14 @@ public class IniciarSesion {
 
     public String getValidarContrasenia() {
         return validarContrasenia;
+    }
+
+    public boolean isVerificador() {
+        return verificador;
+    }
+
+    public void setVerificador(boolean verificador) {
+        this.verificador = verificador;
     }
 
     public void setValidarContrasenia(String validarContrasenia) {
@@ -66,8 +74,8 @@ public class IniciarSesion {
     }
     public void comprobarCuenta()
     {
-        boolean verificador;
-        setPassword(cifrar.cifrarRot13(this.password));
+       
+     setPassword(cifrar.cifrarRot(this.password));
      ResultSet consulta=conectar.Consulta("select *from artesano a where a.correo='"+this.correo+"'"+"&& a.password1='"+this.password+"'");
        try{
    
@@ -75,27 +83,36 @@ public class IniciarSesion {
                
                 validarConrreo=consulta.getString(4);
                 validarContrasenia=consulta.getString(5);
-                setValidarContrasenia(cifrar.DesCifrarRot13(validarContrasenia));
-                System.out.println("-------------------------------------------------");
-                System.out.println("Correo: "+validarConrreo+"\ncontraseña:"+validarContrasenia);
                 verificador=PermitirIngreso(validarConrreo, validarContrasenia);
-               
-                System.out.println("Variable verificador "+verificador);
+                System.out.println("Correo: "+validarConrreo+"\ncontraseña:"+validarContrasenia);
+                System.out.println("Variable verificador"+verificador);
             }       
         }catch(SQLException e){   
             System.out.println("hay error en el while");
         }  
+       llamarNotificacion();
     }
     public boolean PermitirIngreso(String correop,String passwordp)
     {
         boolean ban;
-        if(correop.equals(correo)&&passwordp.equals(password))
+        if(correop.equals(this.correo)&&passwordp.equals(this.password))
         {
         ban=true;
         }else{
         ban=false;
         }
     return ban; 
+    }
+    public void llamarNotificacion()
+    {
+    if(isVerificador()==false)
+    {
+        setNotificar("USUARIO NO REGISTRADO");
+    }else{
+    setNotificar("BIENVENIDO");
+    }
+            
+    
     }
     
 }

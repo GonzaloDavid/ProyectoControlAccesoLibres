@@ -23,14 +23,14 @@
         <br></br>
         <h:form>
             <p:panel header="Registro de Datos">
-
+                 <p:messages id="messages" showDetail="true" autoUpdate="true" />
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-3" align="right">
                         <p>Nombre</p>
                     </div>
                     <div class="col-3">
-                        <p:inputText id="name" value="#{crearCuentaa.nombre}" required="true" requiredMessage="Campo requerido"/>
+                        <p:inputText id="name" value="#{crearCuentaa.nombre}" required="true" requiredMessage="Campo nombre obligatorio"/>
                         <p:messages for="name"/>
                     </div>
 
@@ -44,7 +44,7 @@
                         <p>Apellido</p>
                     </div>
                     <div class="col-3">
-                        <p:inputText id="apellido" value="#{crearCuentaa.apellido}" required="true" requiredMessage="Campo requerido"/>
+                        <p:inputText id="apellido" value="#{crearCuentaa.apellido}" required="true" requiredMessage="Campo apellido obligatorio"/>
                         <p:messages for="apellido"/>
                     </div>
 
@@ -58,7 +58,7 @@
                         <p>Correo</p>
                     </div>
                     <div class="col-3">
-                        <p:inputText id="correo" value="#{crearCuentaa.correo}" required="true" requiredMessage="Campo requerido"/>
+                        <p:inputText id="correo" value="#{crearCuentaa.correo}" required="true" requiredMessage="Campo correo electrónico obligatorio"/>
                         <p:messages for="correo"/>
                     </div>
 
@@ -71,7 +71,7 @@
                         <p>Cedula</p>
                     </div>
                     <div class="col-3">
-                        <p:inputText id="cedula"  value="#{crearCuentaa.cedula}" required="true" requiredMessage="Campo requerido"/>
+                        <p:inputText id="cedula"  value="#{crearCuentaa.cedula}" required="true" requiredMessage="Campo cédula obligatorio"/>
                         <p:messages for="cedula"/>
                     </div>
 
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-3">
                         <p:password id="contraseña" value="#{crearCuentaa.password}" required="true" 
-                                    requiredMessage="Campo necesario" validatorMessage="Las claves no coinciden" weakLabel="Debil" strongLabel="Fuerte" goodLabel="Bueno"
+                                    requiredMessage="Campo contraseña obligatorio" validatorMessage="Las claves no coinciden" weakLabel="Debil" strongLabel="Fuerte" goodLabel="Bueno"
                                     match="confContraseña" feedback="true" promptLabel="Ingrese una clave"
                                     />
                         <p:messages for="contraseña"/>
@@ -100,7 +100,7 @@
                         <p>Confirmar contraseña</p>
                     </div>
                     <div class="col-3">
-                        <p:password id="confContraseña" value="#{crearCuentaa.confPassword}" required="true" requiredMessage="Campo requerido"/>
+                        <p:password id="confContraseña" value="#{crearCuentaa.confPassword}" required="true" requiredMessage="Campo confirmar contraseña obligatorio"/>
 
                         <p:messages for="confContraseña"/>
                     </div>

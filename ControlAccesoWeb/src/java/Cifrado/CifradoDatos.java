@@ -10,7 +10,7 @@ package Cifrado;
  * @author Gonzalo
  */
 public class CifradoDatos {
-    public String cifrarRot13(String cadena){
+    public String cifrarRot(String cadena){
         
         String Minu = "abcdefghijklmnñopqrstuvwxyz";
         String Mayu = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
@@ -32,7 +32,7 @@ public class CifradoDatos {
         }
         return Cifrado;
     }
-    public  String DesCifrarRot13(String cadena){
+    public  String DesCifrarRot(String cadena){
         String Minu = "abcdefghijklmnñopqrstuvwxyz";
         String Mayu = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
         String texto;

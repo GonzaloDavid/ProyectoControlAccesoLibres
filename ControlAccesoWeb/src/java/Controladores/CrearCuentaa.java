@@ -86,8 +86,8 @@ Cifrado.CifradoDatos cifrar=new Cifrado.CifradoDatos();
     public void insertarUsuario()
     {
     enviarMail();
-    setPassword(cifrar.cifrarRot13(this.Password));
-    setConfPassword(cifrar.cifrarRot13(this.confPassword));
+    setPassword(cifrar.cifrarRot(this.Password));
+    setConfPassword(cifrar.cifrarRot(this.confPassword));
     conectar.EjecutarSQL("Insert into artesano(nombre,apellido,correo,password1,confPassword)values('"+this.nombre+"','"+this.apellido+"','"+this.correo+"','"+this.Password+"','"+this.confPassword+"')");
     }
     

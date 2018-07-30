@@ -21,14 +21,16 @@
         </p:panel>
         <h:form>
             <p:panel header="Inicio de Sesión">
-
+                <p:messages id="messages" showDetail="true" autoUpdate="true" />
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-3" align="right">
                             <h:outputLabel for="lcorreo" value="Correo:" />
+                           
                         </div>
                         <div class="col-3">
-                            <p:inputText id="icorreo" required="true" value="#{iniciarSesion.correo}"/> 
+                            <p:inputText id="icorreo" required="true" value="#{iniciarSesion.correo}" requiredMessage="Debe ingresar el correo electronico"/> 
+                            <p:message for="icorreo" display="icon" />
                         </div>
                         <div class="col-3"></div>
                     </div>
@@ -40,7 +42,7 @@
                         </div>
                         <div class="col-3">
                             
-                            <p:password id="ipassword" value="#{iniciarSesion.password}" required="true" requiredMessage="Campo requerido"/>
+                            <p:password id="ipassword" value="#{iniciarSesion.password}" required="true" requiredMessage="Debe ingresar la contraseña"/>
 
                         <p:messages for="ipassword"/>
                         </div>
@@ -51,7 +53,7 @@
                         <div class="col-3"></div>
                         <div class="col-3"></div>
                         <div class="col-3">
-                            <p:commandButton action="iniciarSesion" actionListener="#{iniciarSesion.comprobarCuenta()}" value="Iniciar Sesion" onclick="alert('#{iniciarSesion.notificar}')"/>
+                            <p:commandButton action="newjsf" actionListener="#{iniciarSesion.comprobarCuenta()}" value="Iniciar Sesion"  icon="ui-icon-check"  />
                         </div>
                         <div class="col-3"></div>
                     </div>
