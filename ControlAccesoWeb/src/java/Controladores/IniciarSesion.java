@@ -21,11 +21,28 @@ public class IniciarSesion {
     String notificar;
     
     conexion.Conectar conectar=new conexion.Conectar();
+    Cifrado.CifradoDatos cifrar=new Cifrado.CifradoDatos();
     public IniciarSesion() {
     }
 
     public String getNotificar() {
         return notificar;
+    }
+
+    public String getValidarContrasenia() {
+        return validarContrasenia;
+    }
+
+    public void setValidarContrasenia(String validarContrasenia) {
+        this.validarContrasenia = validarContrasenia;
+    }
+
+    public String getValidarConrreo() {
+        return validarConrreo;
+    }
+
+    public void setValidarConrreo(String validarConrreo) {
+        this.validarConrreo = validarConrreo;
     }
 
     public void setNotificar(String notificar) {
@@ -50,6 +67,7 @@ public class IniciarSesion {
     public void comprobarCuenta()
     {
         boolean verificador;
+        setPassword(cifrar.cifrarRot13(this.password));
      ResultSet consulta=conectar.Consulta("select *from artesano a where a.correo='"+this.correo+"'"+"&& a.password1='"+this.password+"'");
        try{
    
@@ -57,9 +75,10 @@ public class IniciarSesion {
                
                 validarConrreo=consulta.getString(4);
                 validarContrasenia=consulta.getString(5);
+                setValidarContrasenia(cifrar.DesCifrarRot13(validarContrasenia));
                 System.out.println("-------------------------------------------------");
                 System.out.println("Correo: "+validarConrreo+"\ncontraseña:"+validarContrasenia);
-                verificador=PermitirIngreso(validarConrreo, password);
+                verificador=PermitirIngreso(validarConrreo, validarContrasenia);
                
                 System.out.println("Variable verificador "+verificador);
             }       

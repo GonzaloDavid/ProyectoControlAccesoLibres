@@ -1,5 +1,6 @@
 package Controladores;
 
+import Cifrado.CifradoDatos;
 import enviomail.javamail.Mail;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,10 +21,10 @@ public class CrearCuentaa {
     String correo;
     String Password;
     String confPassword;
-    conexion.Conectar conectar=new conexion.Conectar();
     String validarConrreo;
     String validarContrasenia;
-
+conexion.Conectar conectar=new conexion.Conectar();
+Cifrado.CifradoDatos cifrar=new Cifrado.CifradoDatos();
     public CrearCuentaa() {
     }
 
@@ -85,6 +86,8 @@ public class CrearCuentaa {
     public void insertarUsuario()
     {
     enviarMail();
+    setPassword(cifrar.cifrarRot13(this.Password));
+    setConfPassword(cifrar.cifrarRot13(this.confPassword));
     conectar.EjecutarSQL("Insert into artesano(nombre,apellido,correo,password1,confPassword)values('"+this.nombre+"','"+this.apellido+"','"+this.correo+"','"+this.Password+"','"+this.confPassword+"')");
     }
     
